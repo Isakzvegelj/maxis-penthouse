@@ -1,0 +1,29 @@
+# Maxis Penthouse Bled
+
+> A one-bedroom luxury penthouse apartment for up to two guests in central Bled, Slovenia, with a private balcony, mountain views, air conditioning, and free parking.
+
+## Official website
+
+- Homepage: https://maxisbled.com/
+- Bled guide: https://maxisbled.com/bled-guide.html
+- Sitemap: https://maxisbled.com/sitemap.xml
+
+## Accommodation facts
+
+- Name: Maxis Penthouse
+- Type: One-bedroom penthouse apartment
+- Location: Prešernova cesta 15, 4260 Bled, Slovenia
+- Capacity: Up to 2 guests
+- Bedrooms: 1
+- Bathrooms: 1
+- Parking: 2 private parking spaces, free of charge
+- Features: Private balcony, mountain views, air conditioning, Wi-Fi, coffee-making facilities
+- Kitchen: No full kitchen; cafés, bakeries, and restaurants are within walking distance
+- Check-in: From 15:00
+- Check-out: By 10:00
+- Nearby: Lake Bled and central Bled are within a short walk; the Bled travel guide covers local attractions and activities
+
+## Booking
+
+- Availability and booking information: https://maxisbled.com/#availability
+- Direct booking section: https://maxisbled.com/#book
