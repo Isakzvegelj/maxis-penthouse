@@ -234,7 +234,8 @@
   });
 
   function currentLang() {
-    var saved = localStorage.getItem(KEY);
+    var saved = null;
+    try { saved = localStorage.getItem(KEY); } catch (e) {}
     if (saved === 'sl' || saved === 'en') return saved;
     var nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
     return nav.indexOf('sl') === 0 ? 'sl' : 'en';
@@ -267,10 +268,11 @@
     /* update toggle label */
     document.querySelectorAll('[data-lang-toggle]').forEach(function (btn) {
       btn.setAttribute('aria-label', lang === 'sl' ? 'Switch to English' : 'Preklopi v slovenščino');
+      btn.setAttribute('aria-pressed', lang === 'sl' ? 'true' : 'false');
       var t = btn.querySelector('[data-lang-label]');
       if (t) t.textContent = lang === 'sl' ? 'EN' : 'SI';
     });
-    localStorage.setItem(KEY, lang);
+    try { localStorage.setItem(KEY, lang); } catch (e) {}
   }
 
   document.querySelectorAll('[data-lang-toggle]').forEach(function (btn) {

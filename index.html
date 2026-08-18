@@ -31,7 +31,9 @@
   <link rel="stylesheet" href="styles.css" />
   <script>
     (function(){
-      var t=localStorage.getItem('theme');
+      document.documentElement.classList.add('js');
+      var t=null;
+      try { t=localStorage.getItem('theme'); } catch (e) {}
       if(t)document.documentElement.setAttribute('data-theme',t);
       else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');
     })();
@@ -154,7 +156,7 @@
   <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7dbb27348bd54be799d78f2df4124286"}'></script>
 </head>
 <body>
-  <a class="skip-link" href="#about" >Skip to content</a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <header class="site-header">
     <div class="container nav">
@@ -169,12 +171,13 @@
         <a href="#availability" class="btn btn-primary" data-i18n="nav_check">Check Availability</a>
         <a href="#book" class="btn btn-ghost" data-i18n="nav_book">Book now</a>
       </nav>
-      <button class="lang-toggle" data-lang-toggle aria-label="Preklopi v slovenščino"><span data-lang-label>SI</span></button>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"><span class="icon-moon">&#9790;</span><span class="icon-sun">&#9728;</span></button>
+      <button class="lang-toggle" data-lang-toggle aria-label="Preklopi v slovenščino" aria-pressed="false"><span data-lang-label>SI</span></button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false"><span class="icon-moon">&#9790;</span><span class="icon-sun">&#9728;</span></button>
       <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">☰</button>
     </div>
   </header>
 
+  <main id="main-content">
   <section id="top" class="hero">
     <picture>
       <source srcset="images/hero-2000.webp" media="(min-width: 1200px)" />
@@ -367,7 +370,7 @@
   <section id="location" class="section">
     <div class="container two-col">
       <div class="col-media">
-        <div class="map-wrap"><iframe src="https://maps.google.com/maps?q=Pre%C5%A1ernova%20cesta%2015%20Bled%20Slovenia&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        <div class="map-wrap"><iframe title="Map showing Maxis Penthouse at Prešernova cesta 15, Bled" src="https://maps.google.com/maps?q=Pre%C5%A1ernova%20cesta%2015%20Bled%20Slovenia&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
       </div>
       <div class="col-text">
         <p class="eyebrow" data-i18n="loc_eyebrow">Location</p>
@@ -490,6 +493,7 @@
     </div>
   </section>
 
+  </main>
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
@@ -524,15 +528,17 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     var themeToggle = document.getElementById('theme-toggle');
+    themeToggle.setAttribute('aria-pressed', document.documentElement.getAttribute('data-theme') === 'dark' ? 'true' : 'false');
     themeToggle.addEventListener('click', function() {
       var current = document.documentElement.getAttribute('data-theme');
       var next = current === 'dark' ? 'light' : 'dark';
       if (next === 'light') {
         document.documentElement.removeAttribute('data-theme');
-        localStorage.removeItem('theme');
+        themeToggle.setAttribute('aria-pressed', 'false');
+        try { localStorage.removeItem('theme'); } catch (e) {}
       } else {
         document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
+        try { localStorage.setItem('theme', 'dark'); } catch (e) {}
       }
     });
 
@@ -579,7 +585,16 @@
       var lbAria = isSL ? 'Pregledovalnik slik' : 'Image viewer';
       var lbClose = isSL ? 'Zapri' : 'Close';
       overlay.setAttribute('aria-label', lbAria);
-      overlay.innerHTML = '<span class="lightbox-close" tabindex="0" role="button" aria-label="' + lbClose + '">&times;</span><img src="' + src + '" alt="' + (alt || '') + '" />';
+      var close = document.createElement('button');
+       close.className = 'lightbox-close';
+       close.type = 'button';
+       close.setAttribute('aria-label', lbClose);
+       close.textContent = '×';
+       var image = document.createElement('img');
+       image.src = src;
+       image.alt = alt || '';
+       overlay.appendChild(close);
+       overlay.appendChild(image);
       overlay.querySelector('.lightbox-close').addEventListener('click', function() { overlay.remove(); });
       overlay.querySelector('img').addEventListener('click', function(e) { e.stopPropagation(); });
       overlay.addEventListener('click', function() { this.remove(); });
