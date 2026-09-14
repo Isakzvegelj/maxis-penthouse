@@ -1,10 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="12" fill="#2f7d6e"/>
-  <path d="M32 12 L12 30 L16 30 L16 50 L28 50 L28 36 L36 36 L36 50 L48 50 L48 30 L52 30 Z" fill="#fff" opacity=".95"/>
-  <path d="M22 50 L22 28 L32 20 L42 28 L42 50" fill="none" stroke="#2f7d6e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="28" y="36" width="8" height="14" fill="#fff" stroke="#2f7d6e" stroke-width="1.5"/>
-  <line x1="18" y1="24" x2="32" y2="14" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="32" y1="14" x2="46" y2="24" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
-  <circle cx="38" cy="32" r="2" fill="#2f7d6e" opacity=".3"/>
-  <text x="32" y="60" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="7" fill="#fff" opacity=".6">MAXIS</text>
+  <title>Maxis Penthouse</title>
+  <rect width="64" height="64" rx="16" fill="#123b35"/>
+  <path d="M8 48.5h48" fill="none" stroke="#d8b45b" stroke-width="1.5" opacity=".55"/>
+  <circle cx="45.5" cy="18.5" r="9.5" fill="#d8b45b"/>
+  <path d="M11 48V31.5l9.5 7.2L32 23l11.5 15.7 9.5-7.2V48h-7V43L43.5 39 32 27.3 20.5 39 18 43v5z" fill="#fff"/>
+  <path d="M18 48V43l14-15.7L46 43v5" fill="none" stroke="#123b35" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M25.5 48v-7h13v7" fill="#d8b45b"/>
 </svg>

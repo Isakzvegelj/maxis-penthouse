@@ -1,4 +1,9 @@
 $ORIGIN maxisbled.com.
+# Current production hosting: GitHub Pages (the custom domain is live).
+# These records are DNS-only by design. Cloudflare zone request analytics
+# count proxied (orange-cloud) traffic, not DNS-only traffic; use Cloudflare
+# Web Analytics if you want measurement without proxying GitHub Pages.
+# If you enable proxying, confirm SSL/TLS mode is Full (strict) first.
 $TTL 3600
 @ IN A 185.199.108.153
 @ IN A 185.199.109.153

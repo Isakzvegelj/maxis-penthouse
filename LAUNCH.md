@@ -1,5 +1,5 @@
 # Bled Penthouse — Launch Runbook
-# Status: 🚧 UNDER CONSTRUCTION (≈2 weeks to finish)
+# Status: LIVE — custom domain served by GitHub Pages
 
 This is the master checklist. Work top to bottom. Items marked
 [DONE] are ready now. Items marked [ ] are pending.
@@ -47,16 +47,16 @@ PHASE 2 — PHOTOS (do this before publishing)
 ────────────────────────────────────────────────
 PHASE 3 — PUBLISH WEBSITE
 ────────────────────────────────────────────────
-[DONE] Site is LIVE: https://bled-penthouse.netlify.app
-      (deployed via Netlify CLI; redeploy with: cd ~/bled-penthouse && netlify deploy --prod --dir=.)
+[DONE] Site is LIVE: https://maxisbled.com
+      Production DNS currently points to GitHub Pages. A Netlify site also
+      exists, but it is not the active custom-domain origin.
 
 [ ] 2-minute wiring before go-live:
     - Formspree: create free form at formspree.io, copy the ID,
       replace YOUR_FORM_ID in index.html (form action + _next URL).
       Mailto fallback already in place if you skip this.
     - Replace YOUR_EMAIL@example.com (mailto link) with your real email.
-    - Replace YOUR-DOMAIN.example in canonical/og/sitemap with the live URL
-      (or your custom domain once set).
+    - Canonical/OG/sitemap URLs already use https://maxisbled.com.
 
 [ ] Replace Booking.com / Airbnb "#" links with real URLs at launch.
 [ ] (Optional) Custom domain: in Netlify site settings → Domain management,

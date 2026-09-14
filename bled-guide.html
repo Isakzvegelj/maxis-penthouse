@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Things to Do in Bled — Maxis Penthouse Guest Guide</title>
-  <meta name="description" content="Your guide to the best of Bled: Bled Castle, Bled Island, Vintgar Gorge, hiking, swimming, and more. Let us help plan your trip." />
+  <title>Bled Travel Guide: Things to Do, See &amp; Eat | Maxis Penthouse</title>
+  <meta name="description" content="A practical Bled travel guide from a local host: Bled Castle, Bled Island, Vintgar Gorge, swimming, hikes, restaurants, and easy day trips." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://maxisbled.com/bled-guide.html" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="Maxis Penthouse Bled" />
@@ -13,13 +14,14 @@
   <meta property="og:image" content="https://maxisbled.com/images/hero-2000.webp" />
   <meta property="og:image:width" content="2000" />
   <meta property="og:image:height" content="1334" />
+  <meta property="og:image:type" content="image/webp" />
   <meta property="og:image:alt" content="Bright living area with wooden floors and roof windows at Maxis Penthouse Bled" />
   <meta property="og:url" content="https://maxisbled.com/bled-guide.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Things to Do in Bled — Maxis Penthouse Guest Guide" />
   <meta name="twitter:image" content="https://maxisbled.com/images/hero-2000.webp" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="icon" type="image/png" sizes="180x180" href="favicon.png" />
   <link rel="stylesheet" href="styles.css" />
   <script>
     (function(){
@@ -46,8 +48,12 @@
       <nav class="nav-links" id="nav-links">
         <a href="index.html#about" data-i18n="nav_apartment">The Apartment</a>
         <a href="index.html#gallery" data-i18n="nav_gallery">Gallery</a>
+        <a href="index.html#availability" data-i18n="nav_availability">Availability</a>
         <a href="index.html#reviews" data-i18n="nav_reviews">Reviews</a>
-        <a href="index.html#book" class="btn btn-primary" data-i18n="nav_check">Check Availability</a>
+        <a href="index.html#location" data-i18n="nav_location">Location</a>
+        <a href="bled-guide.html" data-i18n="nav_guide">Bled Guide</a>
+        <a href="index.html#availability" class="btn btn-primary" data-i18n="nav_check">Check Availability</a>
+        <a href="index.html#book" class="btn btn-ghost" data-i18n="nav_book">Book now</a>
       </nav>
       <button class="lang-toggle" data-lang-toggle aria-label="Preklopi v slovenščino"><span data-lang-label>SI</span></button>
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"><span class="icon-moon">&#9790;</span><span class="icon-sun">&#9728;</span></button>
@@ -153,7 +159,12 @@
       <h2 class="center" data-i18n="g_help_h">Plan Your Perfect Day</h2>
       <p class="center muted guide-intro" data-i18n="g_help_intro">Not sure what to do? We're happy to help you plan your itinerary, recommend restaurants, book activities, or arrange transport. Just ask.</p>
 
-      <form class="enquiry guide-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" data-email-user="info" data-email-host="maxisbled.com">
+      <form class="enquiry guide-form" name="trip-planning" action="/bled-guide.html?sent=1" method="POST" data-netlify="true" netlify-honeypot="website" data-email-user="info" data-email-host="maxisbled.com">
+        <input type="hidden" name="form-name" value="trip-planning" />
+        <div class="honeypot" aria-hidden="true">
+          <label for="g-website">Leave this field empty</label>
+          <input id="g-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
         <div class="field">
           <label for="g-name" data-i18n="g_name">Name</label>
           <input id="g-name" name="name" type="text" placeholder="Your name" data-i18n-ph="g_name_ph" required />
@@ -184,7 +195,6 @@
           <textarea id="g-msg" name="message" rows="3" placeholder="Restaurant recommendations, booking a boat, needing a taxi..." data-i18n-ph="g_msg_ph"></textarea>
         </div>
         <input type="hidden" name="_subject" value="Maxis Penthouse trip planning request" />
-        <input type="hidden" name="_next" value="https://maxisbled.com/bled-guide.html?sent=1" />
         <button type="submit" class="btn btn-primary btn-block" data-i18n="btn_send_guide">Send — Help me plan my trip</button>
       </form>
 
@@ -214,28 +224,6 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     var guideForm = document.querySelector('.guide-form');
-    if (guideForm && guideForm.action.indexOf('YOUR_FORM_ID') !== -1) {
-      // Formspree not configured yet -> build a mailto link with the answers.
-      guideForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var to = (guideForm.getAttribute('data-email-user')||'') + '@' + (guideForm.getAttribute('data-email-host')||'');
-        var subject = 'Maxis Penthouse trip planning request';
-        var lines = [];
-        var inputs = guideForm.querySelectorAll('input, textarea');
-        for (var i = 0; i < inputs.length; i++) {
-          var el = inputs[i];
-          if (!el.name || el.type === 'hidden' || el.type === 'submit') continue;
-          if (el.type === 'checkbox' && !el.checked) continue;
-          var label = el.id ? guideForm.querySelector('label[for="' + el.id + '"]') : null;
-          var pretty = label ? label.textContent.trim() : el.name;
-          lines.push(pretty + ': ' + el.value);
-        }
-        var body = encodeURIComponent(lines.join('\n'));
-        var mailto = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + body;
-        window.location.href = mailto;
-        guideForm.innerHTML = '<p class="sent-ok">Thanks! Your email app should open with your enquiry ready to send — or write to us directly at <a href="mailto:' + to + '">' + to + '</a>.</p>';
-      });
-    }
     if (location.search.includes('sent=1')) {
       var f = document.querySelector('.guide-form');
       if (f) { f.innerHTML = '<p class="sent-ok">Thanks! We\'ll be in touch to help plan your trip.</p>'; }

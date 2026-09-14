@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bled Weather | Maxis Penthouse</title>
+  <meta name="description" content="Seven-day weather, daylight and air-quality preview for your stay at Maxis Penthouse Bled." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    (function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');})();
+  </script>
+</head>
+<body class="forecast-page">
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">Maxis<span>Penthouse</span></a>
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="index.html#about" data-i18n="nav_apartment">The Apartment</a>
+        <a href="index.html#gallery" data-i18n="nav_gallery">Gallery</a>
+        <a href="index.html#availability" data-i18n="nav_availability">Availability</a>
+        <a href="bled-guide.html" data-i18n="nav_guide">Bled Guide</a>
+        <a href="weather.html" data-i18n="nav_weather">Bled Weather</a>
+        <a href="bled-planner.html" data-i18n="nav_planner">Bled Planner</a>
+        <a class="btn btn-primary" href="index.html#book" data-i18n="nav_book">Book now</a>
+      </nav>
+      <button class="lang-toggle" data-lang-toggle aria-label="Preklopi v slovenščino"><span data-lang-label>SI</span></button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"><span class="icon-moon">☾</span><span class="icon-sun">☀</span></button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="forecast-hero">
+      <div class="container">
+        <p class="eyebrow" data-i18n="weather_eyebrow">Bled weather</p>
+        <h1 data-i18n="weather_h1">Plan a week by the lake</h1>
+        <p class="forecast-lead" data-i18n="weather_lead">Seven-day weather, daylight and air quality for your Bled stay.</p>
+        <a href="index.html" class="text-cta" data-i18n="weather_back">← Back to Maxis Penthouse</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow center" data-i18n="weather_tools_eyebrow">Bled planning toolkit</p>
+        <div class="live-grid weather-tools-grid" aria-live="polite">
+          <article class="live-card"><div class="live-card-heading"><span class="live-icon">☀</span><span data-i18n="live_weather_title">Bled today</span></div><strong class="live-value" id="tool-weather-value">Loading…</strong><p class="live-detail" id="tool-weather-detail">Forecast and daylight are loading.</p><a class="live-source" href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></article>
+          <article class="live-card"><div class="live-card-heading"><span class="live-icon">€</span><span data-i18n="live_currency_title">Price feel</span></div><strong class="live-value" id="tool-currency-value">Loading…</strong><p class="live-detail" id="tool-currency-detail">Approximate conversion from EUR.</p><a class="live-source" href="https://www.exchangerate-api.com/docs/free" target="_blank" rel="noopener noreferrer">ExchangeRate-API</a></article>
+          <article class="live-card"><div class="live-card-heading"><span class="live-icon">✦</span><span data-i18n="live_holiday_title">Next Slovenian holiday</span></div><strong class="live-value" id="tool-holiday-value">Loading…</strong><p class="live-detail" id="tool-holiday-detail">Useful when planning opening hours and local trips.</p><a class="live-source" href="https://date.nager.at/" target="_blank" rel="noopener noreferrer">Nager.Date</a></article>
+          <article class="live-card"><div class="live-card-heading"><span class="live-icon">✧</span><span data-i18n="live_air_title">Air quality</span></div><strong class="live-value" id="tool-air-value">Loading…</strong><p class="live-detail" id="tool-air-detail">A simple outdoor-planning signal.</p><a class="live-source" href="https://open-meteo.com/en/docs/air-quality-api" target="_blank" rel="noopener noreferrer">Open-Meteo Air Quality</a></article>
+          <article class="live-card"><div class="live-card-heading"><span class="live-icon">◌</span><span data-i18n="live_uv_title">UV protection</span></div><strong class="live-value" id="tool-uv-value">Loading…</strong><p class="live-detail" id="tool-uv-detail">A reminder for lake walks.</p><a class="live-source" href="https://open-meteo.com/en/docs" target="_blank" rel="noopener noreferrer">Open-Meteo</a></article>
+          <article class="live-card"><div class="live-card-heading"><span class="live-icon">⌁</span><span data-i18n="live_rain_title">Rain chance</span></div><strong class="live-value" id="tool-rain-value">Loading…</strong><p class="live-detail" id="tool-rain-detail">Useful when choosing your route.</p><a class="live-source" href="https://open-meteo.com/en/docs" target="_blank" rel="noopener noreferrer">Open-Meteo</a></article>
+          <article class="live-card"><div class="live-card-heading"><span class="live-icon">↝</span><span data-i18n="live_wind_title">Wind</span></div><strong class="live-value" id="tool-wind-value">Loading…</strong><p class="live-detail" id="tool-wind-detail">A quick balcony comfort signal.</p><a class="live-source" href="https://open-meteo.com/en/docs" target="_blank" rel="noopener noreferrer">Open-Meteo</a></article>
+          <article class="live-card"><div class="live-card-heading"><span class="live-icon">☁</span><span data-i18n="live_cloud_title">Cloud cover</span></div><strong class="live-value" id="tool-cloud-value">Loading…</strong><p class="live-detail" id="tool-cloud-detail">Helpful for views and photos.</p><a class="live-source" href="https://open-meteo.com/en/docs" target="_blank" rel="noopener noreferrer">Open-Meteo</a></article>
+        </div>
+        <p class="eyebrow center weather-forecast-label" data-i18n="weather_forecast">Next 7 days</p>
+        <div class="forecast-grid" id="forecast-grid" aria-live="polite">
+          <p class="muted center forecast-loading">Loading the forecast…</p>
+        </div>
+        <article class="air-summary" id="weather-air-summary">
+          <div>
+            <p class="eyebrow" data-i18n="weather_air_title">Air quality today</p>
+            <strong id="weather-air-value">Loading…</strong>
+            <p class="muted" id="weather-air-detail" data-i18n="weather_air_detail">An informational signal for planning walks and trips.</p>
+          </div>
+          <a class="live-source" href="https://open-meteo.com/en/docs/air-quality-api" target="_blank" rel="noopener noreferrer">Open-Meteo Air Quality</a>
+        </article>
+        <p class="center muted live-note" data-i18n="weather_source_note">Live data · informational public-API display; the booking calendar remains authoritative.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand" href="index.html">Maxis<span>Penthouse</span></a>
+      <a href="index.html#book" data-i18n="nav_book">Book now</a>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script>
+    (function(){
+      var lat='46.3683', lon='14.1036', grid=document.getElementById('forecast-grid');
+      var state={forecast:null,air:null,currency:null,holiday:null};
+      var copy={en:{loading:'Loading the forecast…',unavailable:'Live data temporarily unavailable',high:'High',low:'Low',sunrise:'Sunrise',sunset:'Sunset',aqi:'AQI',good:'Good',moderate:'Moderate',wind:'Wind',cloud:'Cloud cover',rain:'Rain chance'},sl:{loading:'Nalaganje napovedi …',unavailable:'Podatki v živo začasno niso na voljo',high:'Najvišja',low:'Najnižja',sunrise:'Sončni vzhod',sunset:'Sončni zahod',aqi:'AQI',good:'Dobro',moderate:'Zmerno',wind:'Veter',cloud:'Oblačnost',rain:'Možnost dežja'}};
+      function lang(){return window.maxisLang&&window.maxisLang()==='sl'?'sl':'en';}
+      function t(){return copy[lang()];}
+      function fetchJson(url){var c=new AbortController(), timer=setTimeout(function(){c.abort();},8000);return fetch(url,{signal:c.signal,headers:{Accept:'application/json'}}).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).finally(function(){clearTimeout(timer);});}
+      function dayLabel(date){return new Intl.DateTimeFormat(lang()==='sl'?'sl-SI':'en-GB',{weekday:'short',day:'numeric',month:'short'}).format(new Date(date+'T12:00:00'));}
+      function time(value){return value?(String(value).split('T')[1]||value).slice(0,5):'—';}
+      function weather(code){var en={0:'Clear',1:'Mainly clear',2:'Partly cloudy',3:'Overcast',45:'Fog',51:'Drizzle',61:'Rain',63:'Rain',65:'Heavy rain',71:'Snow',73:'Snow',80:'Showers',95:'Storm'};var sl={0:'Jasno',1:'Pretežno jasno',2:'Delno oblačno',3:'Oblačno',45:'Megla',51:'Rahel dež',61:'Dež',63:'Dež',65:'Močan dež',71:'Sneg',73:'Sneg',80:'Plohe',95:'Nevihta'};return (lang()==='sl'?sl:en)[code]||(lang()==='sl'?'Spremenljivo':'Mixed');}
+      function render(){
+        var c=t(), d=state.forecast&&state.forecast.daily;
+        if(!d){grid.innerHTML='<p class="muted center forecast-loading">'+c.unavailable+'</p>';}else{
+          grid.innerHTML='';
+          d.time.forEach(function(date,i){
+            var card=document.createElement('article');card.className='forecast-card';
+            var title=document.createElement('h3');title.textContent=dayLabel(date);card.appendChild(title);
+            var condition=document.createElement('p');condition.className='forecast-condition';condition.textContent=weather(d.weather_code[i]);card.appendChild(condition);
+            var temps=document.createElement('strong');temps.className='forecast-temps';temps.textContent=c.high+' '+d.temperature_2m_max[i]+'° · '+c.low+' '+d.temperature_2m_min[i]+'°';card.appendChild(temps);
+            var light=document.createElement('p');light.className='forecast-light';light.textContent='☼ '+c.sunrise+' '+time(d.sunrise[i])+' · ☾ '+c.sunset+' '+time(d.sunset[i]);card.appendChild(light);
+            grid.appendChild(card);
+          });
+        }
+        var air=state.air&&state.air.current;
+        if(air){var aqi=air.us_aqi;document.getElementById('weather-air-value').textContent=c.aqi+' '+(aqi??'—')+' · '+(aqi<=50?c.good:c.moderate);document.getElementById('weather-air-detail').textContent=(air.pm2_5??'—')+' μg/m³ PM2.5 · '+(lang()==='sl'?'Preprost signal za načrtovanje sprehodov.':'A simple signal for planning walks.');}
+        else if(state.air){document.getElementById('weather-air-value').textContent=c.unavailable;}
+        renderTools();
+      }
+      function renderTools(){
+        var c=t(), f=state.forecast, cur=f&&f.current, d=f&&f.daily, air=state.air&&state.air.current;
+        function set(id,value,detail){document.getElementById(id).textContent=value; if(detail)document.getElementById(id.replace('-value','-detail')).textContent=detail;}
+        if(cur){set('tool-weather-value',(cur.temperature_2m??'—')+'°C · '+weather(cur.weather_code),c.high+' '+(d.temperature_2m_max?.[0]??'—')+'°C · '+c.low+' '+(d.temperature_2m_min?.[0]??'—')+'°C · '+c.sunrise+' '+time(d.sunrise?.[0])+' · '+c.sunset+' '+time(d.sunset?.[0]));set('tool-uv-value','UV '+(cur.uv_index??'—'),cur.uv_index>=6?(lang()==='sl'?'Visoka izpostavljenost · uporabi zaščito.':'High exposure · use sun protection.'):cur.uv_index>=3?(lang()==='sl'?'Zmerna izpostavljenost · prijeten čas zunaj.':'Moderate exposure · a pleasant time outside.'):(lang()==='sl'?'Nizko · prijeten čas zunaj.':'Low · a pleasant time outside.'));set('tool-rain-value',(d.precipitation_probability_max?.[0]??'—')+'%',c.rain+' · '+(lang()==='sl'?'danes.':'today.'));set('tool-wind-value',(cur.wind_speed_10m??'—')+' km/h',c.wind+' · '+(cur.wind_direction_10m??'—')+'° '+(lang()==='sl'?'smer.':'direction.'));set('tool-cloud-value',(cur.cloud_cover??'—')+'%',c.cloud+' · '+(lang()==='sl'?'koristno za razglede in fotografije.':'useful context for views and photos.'));}
+        if(air){var aqi=air.us_aqi;set('tool-air-value',c.aqi+' '+(aqi??'—')+' · '+(aqi<=50?c.good:c.moderate),(air.pm2_5??'—')+' μg/m³ PM2.5 · '+(lang()==='sl'?'Preprost signal za načrtovanje sprehodov.':'A simple outdoor-planning signal.'));}
+        var fx=state.currency, rates=fx&&fx.rates;if(rates)set('tool-currency-value','€100 ≈ $'+(rates.USD?(100*rates.USD).toFixed(0):'—')+' · £'+(rates.GBP?(100*rates.GBP).toFixed(0):'—'),(lang()==='sl'?'Tudi CHF ':'Also CHF ')+(rates.CHF?(100*rates.CHF).toFixed(0):'—')+' · '+(lang()==='sl'?'samo okvirna pretvorba.':'indicative conversion only.'));
+        var h=state.holiday&&state.holiday.next;if(h)set('tool-holiday-value',h.localName||h.name||(lang()==='sl'?'Prihajajoči praznik':'Upcoming holiday'),(h.date|| (lang()==='sl'?'Datum ni znan':'Date unavailable'))+' · '+(lang()==='sl'?'Pred potovanjem preveri odpiralni čas.':'Check opening hours before travelling.'));
+      }
+      var forecastUrl='https://api.open-meteo.com/v1/forecast?latitude='+lat+'&longitude='+lon+'&current=temperature_2m,weather_code,uv_index,wind_speed_10m,wind_direction_10m,cloud_cover&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_probability_max&timezone=Europe%2FLjubljana&forecast_days=7';
+      var airUrl='https://air-quality-api.open-meteo.com/v1/air-quality?latitude='+lat+'&longitude='+lon+'&current=us_aqi,pm2_5&timezone=Europe%2FLjubljana';
+      var currencyUrl='https://open.er-api.com/v6/latest/EUR';
+      var holidayUrl='https://date.nager.at/api/v3/NextPublicHolidays/SI';
+      fetchJson(forecastUrl).then(function(x){state.forecast=x;render();}).catch(function(){state.forecast={error:true};render();});
+      fetchJson(airUrl).then(function(x){state.air=x;render();}).catch(function(){state.air={error:true};render();});
+      fetchJson(currencyUrl).then(function(x){state.currency=x;render();}).catch(function(){state.currency={error:true};render();});
+      fetchJson(holidayUrl).then(function(x){if(!Array.isArray(x)||!x[0])throw new Error('no holiday');state.holiday={next:x[0]};render();}).catch(function(){state.holiday={error:true};render();});
+      window.addEventListener('maxis:languagechange',render);
+      var themeToggle=document.getElementById('theme-toggle');
+      themeToggle.addEventListener('click',function(){var dark=document.documentElement.getAttribute('data-theme')==='dark';if(dark){document.documentElement.removeAttribute('data-theme');localStorage.removeItem('theme');}else{document.documentElement.setAttribute('data-theme','dark');localStorage.setItem('theme','dark');}});
+      var navToggle=document.getElementById('nav-toggle'), navLinks=document.getElementById('nav-links');
+      navToggle.addEventListener('click',function(){var open=navLinks.classList.toggle('open');navToggle.setAttribute('aria-expanded',open);});
+    })();
+  </script>
+</body>
+</html>

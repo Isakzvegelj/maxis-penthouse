@@ -8,10 +8,35 @@
     /* nav */
     nav_apartment: 'Apartma',
     nav_gallery: 'Galerija',
+    nav_tour: 'Virtualni ogled',
     nav_availability: 'Razpoložljivost',
     nav_reviews: 'Ocene gostov',
     nav_location: 'Lokacija',
     nav_guide: 'Blejski vodič',
+    nav_weather: 'Vreme na Bledu',
+    nav_planner: 'Bled planer',
+    planner_eyebrow: 'Bled planer',
+    planner_h1: 'Uporabni kraji v bližini',
+    planner_lead: 'Praktičen lokalni zemljevid za lažje načrtovanje bivanja.',
+    planner_nearby: 'V bližini Maxis Penthouse',
+    planner_dashboard_h2: 'Načrtuj majhne podrobnosti',
+    planner_note: 'Rezultati prihajajo iz OpenStreetMap in se lahko spreminjajo. Odpiralni čas preveri neposredno.',
+    planner_weather_link: 'Preveri vreme',
+    planner_search_label: 'Išči po Bledu',
+    planner_search_placeholder: 'restavracija, pekarna, izposoja koles …',
+    planner_search_button: 'Išči po zemljevidu',
+    planner_loading: 'Iščemo uporabne kraje …',
+    planner_source: 'Kartografski podatki · OpenStreetMap prek Photona/Overpass · informativno.',
+    planner_links_eyebrow: 'Uradne povezave za Bled',
+    planner_links_h2: 'Razišči naprej',
+    planner_bled_tourism: 'Turizem Bled',
+    planner_bled_tourism_detail: 'Uradne informacije o znamenitostih, dogodkih in obisku →',
+    planner_castle: 'Blejski grad',
+    planner_castle_detail: 'Odpiralni čas, vstopnice in zgodba gradu →',
+    planner_vintgar: 'Soteska Vintgar',
+    planner_vintgar_detail: 'Načrtuj obisk ene najboljših poti v okolici →',
+    planner_experiences: 'Doživetja ob jezeru',
+    planner_experiences_detail: 'Čolni na otok, sprehodi, razgledi in sezonske ideje →',
     nav_check: 'Preveri razpoložljivost',
     nav_book: 'Rezerviraj',
     nav_home: 'Domov',
@@ -45,6 +70,31 @@
     fact_bathroom: 'Kopalnica',
     fact_parking: 'Parkirna mesta',
 
+    /* live stay information */
+    live_eyebrow: 'Načrtuj obisk Bleda',
+    live_h2: 'Nekaj bolj uporabnega kot brošura',
+    live_desc: 'Informacije v živo za načrtovanje dneva — brez pošiljanja podatkov ali poverilnic.',
+    live_weather_title: 'Bled danes',
+    live_currency_title: 'Občutek cene',
+    live_holiday_title: 'Naslednji slovenski praznik',
+    live_air_title: 'Kakovost zraka',
+    live_uv_title: 'UV zaščita',
+    live_rain_title: 'Možnost dežja',
+    live_wind_title: 'Veter',
+    live_cloud_title: 'Oblačnost',
+    live_note: 'Predstavitvena integracija · podatki so informativni in ne nadomeščajo našega rezervacijskega koledarja.',
+
+    /* weather page */
+    weather_eyebrow: 'Vreme na Bledu',
+    weather_h1: 'Načrtuj teden ob jezeru',
+    weather_lead: 'Sedemdnevna napoved, dnevna svetloba in kakovost zraka za tvoj obisk Bleda.',
+    weather_back: 'Nazaj na Maxis Penthouse',
+    weather_tools_eyebrow: 'Orodja za načrtovanje Bleda',
+    weather_forecast: 'Napoved za naslednjih 7 dni',
+    weather_air_title: 'Kakovost zraka danes',
+    weather_air_detail: 'Informativni podatek za načrtovanje sprehodov in izletov.',
+    weather_source_note: 'Podatki v živo · informativni prikaz z javnih API-jev; rezervacijski koledar ostaja merodajen.',
+
     /* about */
     about_eyebrow: 'Apartma',
     about_h2: 'Penthouse, ustvarjen za počasna jutra',
@@ -57,6 +107,13 @@
     gallery_eyebrow: 'Galerija',
     gallery_h2: 'Hiša &amp; penthouse',
     gallery_cta: 'Ti je všeč? Preveri svoje datume',
+
+    /* virtual tour */
+    tour_eyebrow: 'Virtualni ogled',
+    tour_h2: 'Poglej v notranjost, še preden prispeš',
+    tour_desc: 'Razišči 360° pogled na Maxis Penthouse in si ustvari občutek za prostor od doma.',
+    tour_2_title: 'Pogled na penthouse',
+    tour_open: 'Odpri ogled čez celoten zaslon ↗',
 
     /* amenities */
     am_eyebrow: 'Kaj je vključeno',
@@ -89,6 +146,7 @@
     rev_eyebrow: 'Ocene gostov',
     rev_h2: 'Kaj pravijo gostje',
     rev_hint: 'Vsaka ocena je iz resničnega bivanja — <a href="https://www.booking.com/hotel/si/maxis-penthouse-with-castle-view.sl.html" target="_blank" rel="noopener">preberi več na našem Booking.com profilu</a>.',
+    rev_scroll_hint: 'Podrsaj levo ali desno za več ocen →',
     rev_source: 'Ocena na Booking.com',
 
     /* location */
@@ -271,6 +329,7 @@
       if (t) t.textContent = lang === 'sl' ? 'EN' : 'SI';
     });
     localStorage.setItem(KEY, lang);
+    window.dispatchEvent(new CustomEvent('maxis:languagechange', { detail: { lang: lang } }));
   }
 
   document.querySelectorAll('[data-lang-toggle]').forEach(function (btn) {
@@ -281,6 +340,18 @@
 
   window.maxisT = function (lang) { apply(lang); };
   window.maxisLang = function () { return currentLang(); };
+
+  /* Mobile back-to-top control */
+  var backToTop = document.createElement('button');
+  backToTop.className = 'back-to-top';
+  backToTop.type = 'button';
+  backToTop.setAttribute('aria-label', 'Back to top');
+  backToTop.innerHTML = '&#8593;';
+  document.body.appendChild(backToTop);
+  function updateBackToTop() { backToTop.classList.toggle('visible', window.scrollY > 300); }
+  window.addEventListener('scroll', updateBackToTop, { passive: true });
+  backToTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  updateBackToTop();
 
   apply(currentLang());
 })();
