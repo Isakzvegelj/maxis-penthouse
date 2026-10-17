@@ -498,7 +498,7 @@
         <h2 class="center" data-i18n="ct_h2">Send us an enquiry</h2>
       </div>
       <p class="center muted guide-intro" style="max-width:680px;margin:0 auto 28px;" data-i18n="ct_intro">Questions about dates, pricing, or the area? Complete the form to prepare an email, then send it from your email app. You can also reach us directly by email.</p>
-      <form class="enquiry home-form" name="home-enquiry" action="mailto:info@maxisbled.com" method="GET" data-email-user="info" data-email-host="maxisbled.com">
+      <form class="enquiry home-form" name="home-enquiry" action="#contact" method="GET" data-email-user="info" data-email-host="maxisbled.com">
         <div class="field">
           <label for="h-name" data-i18n="ct_name">Name</label>
           <input id="h-name" name="name" type="text" placeholder="Your name" data-i18n-ph="ct_name_ph" required />
@@ -519,9 +519,10 @@
           <label for="h-website" data-i18n="ct_hp">Leave this field empty</label>
           <input id="h-website" name="website" type="text" tabindex="-1" autocomplete="off" />
         </div>
-        <button type="submit" class="btn btn-primary btn-block" data-i18n="btn_prepare_enquiry">Prepare email enquiry</button>
+        <button type="submit" disabled class="btn btn-primary btn-block" data-i18n="btn_prepare_enquiry">Prepare email enquiry</button>
         <p class="muted" style="font-size:.85rem;text-align:center;margin-top:12px;"><span data-i18n="ct_email_us">Or email us directly at</span> <a class="mailto mailto-self" data-email-user="info" data-email-host="maxisbled.com" href="#">[email]</a></p>
         <p id="enquiry-status" class="muted" role="status" hidden></p>
+        <noscript><p>Email <a href="mailto:info@maxisbled.com">info@maxisbled.com</a> to enquire about your stay.</p></noscript>
       </form>
     </div>
   </section>
@@ -809,6 +810,7 @@
       : 'Your email app should open with a draft. Send it there to complete your enquiry. If it does not open, email info@maxisbled.com directly.';
   }
   window.addEventListener('maxis:languagechange', renderEnquiryStatus);
+  form.querySelector('button[type=submit]').disabled = false;
 })();
 </script>
 
