@@ -16,8 +16,16 @@ generation.
 
 ## Git / Deploy
 - Remote: https://github.com/Isakzvegelj/maxis-penthouse.git
-- Served via Netlify (CNAME + .netlify present).
+- Live at https://maxisbled.com/ via GitHub Pages, `gh-pages` branch, repository root. The old Netlify notes are historical.
+- A push to `gh-pages` publishes. Preserve unrelated work and verify the remote head before release.
 
 ## Conventions
 - Static site + PDF generation. Commit to maxis-penthouse repo.
 - Image gallery lives in `images/` and is updated often.
+
+## Performance and enquiries
+- `npm ci` then `npm run images` regenerates committed responsive photographs; Node 20.11+ is required by the generation script. Runtime remains a static site.
+- Bentral uses native lazy iframes matching the provider's former script output. Preserve iframe IDs, booking identifiers and URL parameters. The head message listener checks the provider origin and source window before resizing. Verify all three frames after changes; do not make unsolicited bookings.
+- The 360 tour loads on request. Keep its external fallback link.
+- The homepage enquiry form opens an email draft; it does not submit to Netlify or confirm delivery. Keep this explicit in both EN and SL.
+- See `PERFORMANCE.md` for verification and remaining limits.

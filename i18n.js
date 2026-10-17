@@ -5,6 +5,8 @@
 
   /* Slovenian strings. English lives in the HTML as the default. */
   var SL = {
+    tour_load: 'Naloži 360° ogled',
+    btn_prepare_enquiry: 'Pripravi e-poštno povpraševanje',
     /* nav */
     nav_apartment: 'Apartma',
     nav_gallery: 'Galerija',
@@ -192,7 +194,7 @@
     /* contact */
     ct_eyebrow: 'Kontakt',
     ct_h2: 'Pošlji nam povpraševanje',
-    ct_intro: 'Vprašanja o datumih, cenah ali okolici? Izpolni obrazec in odgovorili ti bomo — rezervacija ni potrebna. Pišeš nam lahko tudi neposredno po e-pošti.',
+    ct_intro: 'Izpolni obrazec za pripravo e-poštnega osnutka, nato ga pošlji iz svoje e-poštne aplikacije. Lahko nam pišeš tudi neposredno.',
     ct_name: 'Ime',
     ct_name_ph: 'Tvoje ime',
     ct_email: 'E-pošta',
@@ -324,7 +326,7 @@
     document.documentElement.setAttribute('lang', lang);
     /* update toggle label */
     document.querySelectorAll('[data-lang-toggle]').forEach(function (btn) {
-      btn.setAttribute('aria-label', lang === 'sl' ? 'Switch to English' : 'Preklopi v slovenščino');
+      btn.setAttribute('aria-label', lang === 'sl' ? 'EN — Switch to English' : 'SI — Preklopi v slovenščino');
       var t = btn.querySelector('[data-lang-label]');
       if (t) t.textContent = lang === 'sl' ? 'EN' : 'SI';
     });

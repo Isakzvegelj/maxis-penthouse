@@ -7,7 +7,8 @@
   <meta name="description" content="Luxury penthouse apartment in Bled, Slovenia — steps from Lake Bled. Private balcony, mountain views, air conditioning, free parking for 2 cars. Book direct for the best rate." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://maxisbled.com/" />
-  <link rel="preload" as="image" href="images/hero.webp" imagesrcset="images/hero-2000.webp 2000w, images/hero.webp 1024w" imagesizes="100vw" />
+  <link rel="preload" as="image" media="(min-width: 768px), (orientation: landscape)" href="images/hero.webp" imagesrcset="images/responsive/hero-480.webp 480w, images/responsive/hero-800.webp 800w, images/responsive/hero-1200.webp 1200w, images/responsive/hero-1600.webp 1600w, images/responsive/hero-2000.webp 2000w" imagesizes="100vw" />
+  <link rel="preload" as="image" media="(max-width: 767px) and (orientation: portrait)" href="images/responsive/hero-portrait-800.webp" imagesrcset="images/responsive/hero-portrait-480.webp 480w, images/responsive/hero-portrait-800.webp 800w, images/responsive/hero-portrait-1200.webp 1200w" imagesizes="100vw" />
 
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_US" />
@@ -30,7 +31,21 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="icon" type="image/png" sizes="180x180" href="favicon.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=8e300fd" />
+  <link rel="stylesheet" href="styles.css?v=20261017-performance" />
+  <script>
+    // The provider's embeds contain these same frames. Native lazy loading keeps
+    // their synchronous document.write scripts out of the first paint.
+    window.addEventListener('message', function(event) {
+      if (event.origin !== 'https://www.bentral.com' || typeof event.data !== 'string') return;
+      var match = /^([a-f0-9]{32})_(\d+)$/.exec(event.data);
+      if (!match) return;
+      var frame = document.getElementById('bentral-frame-' + match[1]);
+      var height = Number(match[2]);
+      if (frame && frame.contentWindow === event.source && height > 0 && height < 12000) {
+        frame.style.height = (height + 30) + 'px';
+      }
+    });
+  </script>
   <script>
     (function(){
       var t=localStorage.getItem('theme');
@@ -182,8 +197,8 @@
 
   <section id="top" class="hero">
     <picture>
-      <source srcset="images/hero-2000.webp" media="(min-width: 1200px)" />
-      <img class="hero-photo" src="images/hero.webp" alt="Bright living area with wooden floors and roof windows at Maxis Penthouse Bled" fetchpriority="high" width="1024" height="683" />
+      <source media="(max-width: 767px) and (orientation: portrait)" srcset="images/responsive/hero-portrait-480.webp 480w, images/responsive/hero-portrait-800.webp 800w, images/responsive/hero-portrait-1200.webp 1200w" sizes="100vw" />
+      <img class="hero-photo" src="images/hero.webp" alt="Bright living area with wooden floors and roof windows at Maxis Penthouse Bled" fetchpriority="high" width="1024" height="683" srcset="images/responsive/hero-480.webp 480w, images/responsive/hero-800.webp 800w, images/responsive/hero-1200.webp 1200w, images/responsive/hero-1600.webp 1600w, images/responsive/hero-2000.webp 2000w" sizes="100vw" decoding="async" />
     </picture>
     <div class="hero-overlay"></div>
     <div class="container hero-inner">
@@ -218,7 +233,7 @@
         <a href="#availability" class="text-cta" data-i18n="about_cta">Check availability for your dates →</a>
       </div>
       <div class="col-media">
-        <img class="img-round" src="images/living.webp" alt="Living room with balcony door and garden view at Maxis Penthouse Bled"  loading="lazy" width="1024" height="683" />
+        <img class="img-round" src="images/living.webp" alt="Living room with balcony door and garden view at Maxis Penthouse Bled"  loading="lazy" width="1024" height="683" srcset="images/responsive/living-480.webp 480w, images/responsive/living-800.webp 800w, images/responsive/living-1200.webp 1200w, images/responsive/living-1600.webp 1600w" sizes="(max-width: 768px) calc(100vw - 40px), 510px" decoding="async" />
       </div>
     </div>
   </section>
@@ -229,15 +244,15 @@
       <h2 class="center" data-i18n="gallery_h2">The house &amp; the penthouse</h2>
       <div class="gallery" role="region" aria-label="Photo gallery" tabindex="0">
         <div class="gallery-track">
-          <img class="img-round gallery-lead" src="images/featured.webp" alt="Spacious penthouse living area with natural light and wooden floors at Maxis Penthouse Bled" loading="lazy" width="1024" height="683" />
-          <img class="img-round" src="images/building.webp" alt="Exterior of the house on Prešernova cesta 15 — the penthouse is the top floor with solar panels, skylights and a private balcony" loading="lazy" width="1313" height="1600" />
-          <img class="img-round" src="images/balcony.webp" alt="Private balcony with garden and hill views at Maxis Penthouse Bled" loading="lazy" width="1024" height="683" />
-          <img class="img-round" src="images/bedroom.webp" alt="Double bedroom with warm lighting and wooden floors at Maxis Penthouse Bled" loading="lazy" width="1024" height="683" />
-          <img class="img-round" src="images/skylight.webp" alt="Roof windows filling the penthouse living room with light at Maxis Penthouse Bled" loading="lazy" width="1024" height="683" />
-          <img class="img-round" src="images/bathroom.webp" alt="Modern bathroom with shower at Maxis Penthouse Bled" loading="lazy" width="1024" height="683" />
-          <img class="img-round" src="images/gallery-5.webp" alt="Penthouse room with natural light at Maxis Penthouse Bled" loading="lazy" width="1024" height="683" />
-          <img class="img-round" src="images/gallery-11.webp" alt="Views over the hills and trees from Maxis Penthouse Bled" loading="lazy" width="1024" height="683" />
-          <img class="img-round" src="images/gallery-12.webp" alt="Dining table area at Maxis Penthouse Bled" loading="lazy" width="1024" height="683" />
+          <img class="img-round gallery-lead" src="images/featured.webp" alt="Spacious penthouse living area with natural light and wooden floors at Maxis Penthouse Bled" loading="lazy" width="1024" height="683" srcset="images/responsive/featured-480.webp 480w, images/responsive/featured-800.webp 800w, images/responsive/featured-1200.webp 1200w, images/responsive/featured-1600.webp 1600w" sizes="(max-width: 600px) 72vw, (max-width: 1312px) 32vw, 420px" decoding="async" />
+          <img class="img-round" src="images/building.webp" alt="Exterior of the house on Prešernova cesta 15 — the penthouse is the top floor with solar panels, skylights and a private balcony" loading="lazy" width="1313" height="1600" srcset="images/responsive/building-480.webp 480w, images/responsive/building-800.webp 800w, images/responsive/building-1200.webp 1200w, images/responsive/building-1313.webp 1313w" sizes="(max-width: 600px) 72vw, (max-width: 1363px) 22vw, 300px" decoding="async" />
+          <img class="img-round" src="images/balcony.webp" alt="Private balcony with garden and hill views at Maxis Penthouse Bled" loading="lazy" width="1024" height="683" srcset="images/responsive/balcony-480.webp 480w, images/responsive/balcony-800.webp 800w, images/responsive/balcony-1200.webp 1200w, images/responsive/balcony-1600.webp 1600w" sizes="(max-width: 600px) 72vw, (max-width: 1363px) 22vw, 300px" decoding="async" />
+          <img class="img-round" src="images/bedroom.webp" alt="Double bedroom with warm lighting and wooden floors at Maxis Penthouse Bled" loading="lazy" width="1024" height="683" srcset="images/responsive/bedroom-480.webp 480w, images/responsive/bedroom-800.webp 800w, images/responsive/bedroom-1200.webp 1200w, images/responsive/bedroom-1600.webp 1600w" sizes="(max-width: 600px) 72vw, (max-width: 1363px) 22vw, 300px" decoding="async" />
+          <img class="img-round" src="images/skylight.webp" alt="Roof windows filling the penthouse living room with light at Maxis Penthouse Bled" loading="lazy" width="1024" height="683" srcset="images/responsive/skylight-480.webp 480w, images/responsive/skylight-800.webp 800w, images/responsive/skylight-1200.webp 1200w, images/responsive/skylight-1600.webp 1600w" sizes="(max-width: 600px) 72vw, (max-width: 1363px) 22vw, 300px" decoding="async" />
+          <img class="img-round" src="images/bathroom.webp" alt="Modern bathroom with shower at Maxis Penthouse Bled" loading="lazy" width="1024" height="683" srcset="images/responsive/bathroom-480.webp 480w, images/responsive/bathroom-800.webp 800w, images/responsive/bathroom-1200.webp 1200w, images/responsive/bathroom-1600.webp 1600w" sizes="(max-width: 600px) 72vw, (max-width: 1363px) 22vw, 300px" decoding="async" />
+          <img class="img-round" src="images/gallery-5.webp" alt="Penthouse room with natural light at Maxis Penthouse Bled" loading="lazy" width="1024" height="683" srcset="images/responsive/gallery-5-480.webp 480w, images/responsive/gallery-5-800.webp 800w, images/responsive/gallery-5-1200.webp 1200w, images/responsive/gallery-5-1600.webp 1600w" sizes="(max-width: 600px) 72vw, (max-width: 1363px) 22vw, 300px" decoding="async" />
+          <img class="img-round" src="images/gallery-11.webp" alt="Views over the hills and trees from Maxis Penthouse Bled" loading="lazy" width="1024" height="683" srcset="images/responsive/gallery-11-480.webp 480w, images/responsive/gallery-11-800.webp 800w, images/responsive/gallery-11-1200.webp 1200w, images/responsive/gallery-11-1600.webp 1600w" sizes="(max-width: 600px) 72vw, (max-width: 1363px) 22vw, 300px" decoding="async" />
+          <img class="img-round" src="images/gallery-12.webp" alt="Dining table area at Maxis Penthouse Bled" loading="lazy" width="1024" height="683" srcset="images/responsive/gallery-12-480.webp 480w, images/responsive/gallery-12-800.webp 800w, images/responsive/gallery-12-1200.webp 1200w, images/responsive/gallery-12-1600.webp 1600w" sizes="(max-width: 600px) 72vw, (max-width: 1363px) 22vw, 300px" decoding="async" />
         </div>
       </div>
       <div class="section-cta center">
@@ -256,8 +271,8 @@
       <div class="virtual-tour-grid">
         <article class="virtual-tour-card">
           <h3 data-i18n="tour_2_title">A second look around</h3>
-          <div class="virtual-tour-frame">
-            <iframe title="Second 360° virtual tour of the Maxis Penthouse" src="https://momento360.com/e/uc/481cbc3a7614411aabf48dd145ebda7f?utm_campaign=embed&amp;utm_source=other&amp;utm_medium=embed&amp;size=medium&amp;display-plan=true" allow="accelerometer; gyroscope; autoplay; fullscreen" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="virtual-tour-frame" id="maxis-tour-frame">
+            <button type="button" class="virtual-tour-load" data-tour-src="https://momento360.com/e/uc/481cbc3a7614411aabf48dd145ebda7f?utm_campaign=embed&amp;utm_source=other&amp;utm_medium=embed&amp;size=medium&amp;display-plan=true" aria-controls="maxis-tour-frame" data-i18n="tour_load">Load the 360° tour</button>
           </div>
           <a class="virtual-tour-open" href="https://momento360.com/e/uc/481cbc3a7614411aabf48dd145ebda7f" target="_blank" rel="noopener" data-i18n="tour_open">Open tour full screen ↗</a>
         </article>
@@ -315,7 +330,7 @@
         <p class="section-desc center muted" data-i18n="av_desc">Live calendar — what you see is real-time. Summer weekends book first.</p>
       </div>
       <div class="bentral-widget bentral-calendar">
-        <script src="//www.bentral.com/service/embed/calendar.js?uid=5f54637a4e44674d&last=true&key=ef32fbc68fd13b8f9e5ba7a55520e061"></script>
+        <iframe id="bentral-frame-6067f7c2bb198290f9ddb6546fa55636" loading="lazy" src="https://www.bentral.com/service/embed/calendar.html?uid=5f54637a4e44674d&last=true&key=ef32fbc68fd13b8f9e5ba7a55520e061" title="Maxis Penthouse booking information" width="100%" marginheight="0" marginwidth="0" frameborder="0" scrolling="no"></iframe>
       </div>
     </div>
   </section>
@@ -328,7 +343,7 @@
         <p class="section-desc center muted" data-i18n="pr_desc">Seasonal rates — tourist tax and cleaning fee shown at checkout.</p>
       </div>
       <div class="bentral-widget bentral-pricelist">
-        <script src="//www.bentral.com/service/embed/price-list.js?uid=5f54637a4e44674d&id=5f7a51794e515f4e&key=ef32fbc68fd13b8f9e5ba7a55520e061"></script>
+        <iframe id="bentral-frame-69c10d515335ba7f0d571570b651845a" loading="lazy" src="https://www.bentral.com/service/embed/price-list.html?uid=5f54637a4e44674d&id=5f7a51794e515f4e&key=ef32fbc68fd13b8f9e5ba7a55520e061" title="Maxis Penthouse booking information" width="100%" marginheight="0" marginwidth="0" frameborder="0" scrolling="no"></iframe>
       </div>
     </div>
   </section>
@@ -387,7 +402,7 @@
   <section id="location" class="section">
     <div class="container two-col">
       <div class="col-media">
-        <div class="map-wrap"><iframe src="https://maps.google.com/maps?q=Pre%C5%A1ernova%20cesta%2015%20Bled%20Slovenia&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        <div class="map-wrap"><iframe title="Map to Maxis Penthouse Bled" src="https://maps.google.com/maps?q=Pre%C5%A1ernova%20cesta%2015%20Bled%20Slovenia&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
       </div>
       <div class="col-text">
         <p class="eyebrow" data-i18n="loc_eyebrow">Location</p>
@@ -469,7 +484,7 @@
         </div>
         <div class="booking-form-wrapper">
           <div class="bentral-widget">
-            <script src="//www.bentral.com/service/embed/booking.js?id=5f7a51794e515f4e&width=full&key=ef32fbc68fd13b8f9e5ba7a55520e061"></script>
+            <iframe id="bentral-frame-4ba34904fe45284c204a6649121922d3" loading="lazy" src="https://www.bentral.com/service/embed/booking.html?id=5f7a51794e515f4e&width=full&key=ef32fbc68fd13b8f9e5ba7a55520e061" title="Maxis Penthouse booking information" width="100%" marginheight="0" marginwidth="0" frameborder="0" scrolling="no"></iframe>
           </div>
         </div>
       </div>
@@ -482,9 +497,8 @@
         <p class="eyebrow center" data-i18n="ct_eyebrow">Contact us</p>
         <h2 class="center" data-i18n="ct_h2">Send us an enquiry</h2>
       </div>
-      <p class="center muted guide-intro" style="max-width:680px;margin:0 auto 28px;" data-i18n="ct_intro">Questions about dates, pricing, or the area? Fill in the form and we'll get back to you — no booking needed. You can also reach us directly by email.</p>
-      <form class="enquiry home-form" name="home-enquiry" method="POST" action="/?sent=1" data-netlify="true" netlify-honeypot="website" data-email-user="info" data-email-host="maxisbled.com">
-        <input type="hidden" name="form-name" value="home-enquiry" />
+      <p class="center muted guide-intro" style="max-width:680px;margin:0 auto 28px;" data-i18n="ct_intro">Questions about dates, pricing, or the area? Complete the form to prepare an email, then send it from your email app. You can also reach us directly by email.</p>
+      <form class="enquiry home-form" name="home-enquiry" action="mailto:info@maxisbled.com" method="GET" data-email-user="info" data-email-host="maxisbled.com">
         <div class="field">
           <label for="h-name" data-i18n="ct_name">Name</label>
           <input id="h-name" name="name" type="text" placeholder="Your name" data-i18n-ph="ct_name_ph" required />
@@ -505,8 +519,9 @@
           <label for="h-website" data-i18n="ct_hp">Leave this field empty</label>
           <input id="h-website" name="website" type="text" tabindex="-1" autocomplete="off" />
         </div>
-        <button type="submit" class="btn btn-primary btn-block" data-i18n="btn_send">Send enquiry</button>
+        <button type="submit" class="btn btn-primary btn-block" data-i18n="btn_prepare_enquiry">Prepare email enquiry</button>
         <p class="muted" style="font-size:.85rem;text-align:center;margin-top:12px;"><span data-i18n="ct_email_us">Or email us directly at</span> <a class="mailto mailto-self" data-email-user="info" data-email-host="maxisbled.com" href="#">[email]</a></p>
+        <p id="enquiry-status" class="muted" role="status" hidden></p>
       </form>
     </div>
   </section>
@@ -584,6 +599,29 @@
         navToggle.setAttribute('aria-expanded', 'false');
         navToggle.focus();
       }
+    });
+
+    function nameBookingFrames() {
+      var sl = window.maxisLang && window.maxisLang() === 'sl';
+      document.querySelectorAll('.bentral-widget').forEach(function(widget) {
+        var title = widget.classList.contains('bentral-calendar') ? (sl ? 'Razpoložljivost Maxis Penthouse' : 'Maxis Penthouse availability')
+          : widget.classList.contains('bentral-pricelist') ? (sl ? 'Cenik Maxis Penthouse' : 'Maxis Penthouse prices')
+          : (sl ? 'Rezervacija Maxis Penthouse' : 'Book Maxis Penthouse');
+        widget.querySelectorAll('iframe').forEach(function(frame) { frame.title = title; });
+      });
+    }
+    nameBookingFrames();
+    window.addEventListener('maxis:languagechange', nameBookingFrames);
+
+    var tourButton = document.querySelector('[data-tour-src]');
+    tourButton.addEventListener('click', function() {
+      var frame = document.createElement('iframe');
+      frame.title = window.maxisLang && window.maxisLang() === 'sl' ? '360° virtualni ogled Maxis Penthouse' : '360° virtual tour of Maxis Penthouse';
+      frame.src = tourButton.getAttribute('data-tour-src');
+      frame.allow = 'accelerometer; gyroscope; autoplay; fullscreen';
+      frame.allowFullscreen = true;
+      frame.referrerPolicy = 'no-referrer-when-downgrade';
+      tourButton.replaceWith(frame);
     });
 
     var galleryTrack = document.querySelector('.gallery-track');
@@ -754,9 +792,23 @@
 (function(){
   var form = document.querySelector('.home-form');
   if(!form) return;
-  if (location.search.indexOf('sent=1') !== -1) {
-    form.innerHTML = '<p class="sent-ok">Thanks! We received your enquiry and will be in touch soon.</p>';
+  var status = document.getElementById('enquiry-status');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    if (!form.reportValidity() || form.elements.website.value) return;
+    var to = form.getAttribute('data-email-user') + '@' + form.getAttribute('data-email-host');
+    var body = ['Name: ' + form.elements.name.value, 'Email: ' + form.elements._replyto.value, 'Dates: ' + form.elements.dates.value, '', form.elements.message.value].join('\n');
+    window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent('Maxis Penthouse enquiry') + '&body=' + encodeURIComponent(body);
+    status.hidden = false;
+    renderEnquiryStatus();
+  });
+  function renderEnquiryStatus() {
+    if (status.hidden) return;
+    status.textContent = window.maxisLang && window.maxisLang() === 'sl'
+      ? 'Osnutek je pripravljen za e-poštno aplikacijo. Povpraševanje pošlji v njej. Če se ne odpre, nam piši neposredno na info@maxisbled.com.'
+      : 'Your email app should open with a draft. Send it there to complete your enquiry. If it does not open, email info@maxisbled.com directly.';
   }
+  window.addEventListener('maxis:languagechange', renderEnquiryStatus);
 })();
 </script>
 

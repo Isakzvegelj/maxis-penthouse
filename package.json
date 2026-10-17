@@ -1,0 +1,10 @@
+{
+  "name": "maxis-image-tools",
+  "private": true,
+  "scripts": {
+    "images": "node scripts/generate-images.mjs"
+  },
+  "devDependencies": {
+    "sharp": "0.34.4"
+  }
+}

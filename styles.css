@@ -94,7 +94,7 @@ img{max-width:100%;height:auto;display:block}
 .facts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:26px 20px;text-align:center}
 .fact{display:flex;flex-direction:column;gap:2px}
 .fact-num{font-size:1.5rem;font-weight:800}
-.fact-label{font-size:.8rem;opacity:.9;text-transform:uppercase;letter-spacing:.08em}
+.fact-label{font-size:.8rem;opacity:1;text-transform:uppercase;letter-spacing:.08em}
 
 .live-stay-section{border-bottom:1px solid var(--line)}
 .live-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:28px auto 0;max-width:1040px}
@@ -158,6 +158,9 @@ img{max-width:100%;height:auto;display:block}
 .virtual-tour-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow)}
 .virtual-tour-card h3{font-size:1.05rem;color:var(--accent);margin:4px 6px 12px}
 .virtual-tour-frame{aspect-ratio:2/1;overflow:hidden;border-radius:10px;background:#182321}
+.virtual-tour-load{width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:24px;border:0;background:#182321;color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.virtual-tour-load:hover{background:#263f39}
+.virtual-tour-load:focus-visible{outline:3px solid #fff;outline-offset:-6px}
 .virtual-tour-frame iframe{width:100%;height:100%;display:block;border:0}
 @keyframes gallery-marquee{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 @media(prefers-reduced-motion:reduce){.gallery-track{animation:none;flex-wrap:wrap}.gallery{overflow-x:auto}.gallery-track + .gallery-track{display:none}}
@@ -228,6 +231,7 @@ img{max-width:100%;height:auto;display:block}
 .review-author strong{font-weight:700}
 .review-author span{font-size:.82rem}
 
+.site-footer .muted{color:#a6b8b3}
 .site-footer .brand{color:#fff}
 .site-footer .brand span{color:var(--gold)}
 .copyright{text-align:center;color:#8fa3a0;font-size:.85rem;margin-top:32px;border-top:1px solid rgba(255,255,255,.1);padding-top:18px}
@@ -331,3 +335,7 @@ img{max-width:100%;height:auto;display:block}
 .home-form input:focus,.home-form textarea:focus{outline:none;border-color:var(--accent,#2d6a4f);box-shadow:0 0 0 3px rgba(45,106,79,.15)}
 /* Honeypot: invisible to real users, catches bots */
 .enquiry .honeypot{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden;opacity:0}
+
+/* Keep small labels and primary actions readable in either theme. */
+[data-theme="dark"] .facts{background:#225c51}
+[data-theme="dark"] .btn-primary,[data-theme="dark"] .nav-links .btn-primary{color:#0f1716}
