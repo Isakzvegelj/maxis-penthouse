@@ -1,9 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <title>Maxis Penthouse</title>
-  <rect width="64" height="64" rx="16" fill="#123b35"/>
-  <path d="M8 48.5h48" fill="none" stroke="#d8b45b" stroke-width="1.5" opacity=".55"/>
-  <circle cx="45.5" cy="18.5" r="9.5" fill="#d8b45b"/>
-  <path d="M11 48V31.5l9.5 7.2L32 23l11.5 15.7 9.5-7.2V48h-7V43L43.5 39 32 27.3 20.5 39 18 43v5z" fill="#fff"/>
-  <path d="M18 48V43l14-15.7L46 43v5" fill="none" stroke="#123b35" stroke-width="2.5" stroke-linejoin="round"/>
-  <path d="M25.5 48v-7h13v7" fill="#d8b45b"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><title>Maxis</title><rect width="128" height="128" rx="25" fill="#244b40"/><path d="M20 101v-6h10V33H20v-6h27l18 48 18-48h25v6H98v62h10v6H76v-6h10V42L65 98h-5L39 42v53h11v6Z" fill="#f7f5ee"/></svg>

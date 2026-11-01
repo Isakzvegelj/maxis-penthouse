@@ -5,6 +5,8 @@
 
   /* Slovenian strings. English lives in the HTML as the default. */
   var SL = {
+    elegant_reserve: 'Rezerviraj svoje bivanje',
+    elegant_dates: 'Tvoji datumi. Tvoj čas na Bledu.',
     booking_check: 'Preveri datume in rezerviraj',
     booking_help: 'Imaš vprašanje? Piši nam pred rezervacijo →',
     booking_fallback: 'Se obrazec ne naloži?',

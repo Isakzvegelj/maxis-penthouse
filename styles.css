@@ -355,3 +355,28 @@ section[id]{scroll-margin-top:86px}
   #book .booking-grid{gap:22px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sticky-mobile-bar{transition:none}}
+
+/* An understated reservation card, using Bentral's native presentation options. */
+#book{background:var(--bg-alt)}
+#book .booking-grid{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:56px;max-width:1000px;margin:36px auto 0}
+#book .booking-content h3{font-size:1.6rem;font-weight:600;margin-bottom:16px}
+.booking-property-photo{overflow:hidden;border-radius:16px;margin-bottom:24px}
+.booking-property-photo img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.booking-property-name{font-size:.7rem;letter-spacing:.18em;font-weight:600;color:var(--accent);margin-bottom:10px}
+#book .booking-features{margin:22px 0}
+#book .booking-features li{font-size:.88rem;padding:11px 0}
+#book .booking-form-wrapper{background:#fff;color:#253c35;padding:28px;border:1px solid #e2e8e2;border-radius:20px;box-shadow:0 16px 48px rgba(22,54,43,.05)}
+.booking-card-heading{display:flex;align-items:center;gap:14px;padding-bottom:22px;margin-bottom:8px;border-bottom:1px solid #e9ede8}
+.booking-card-heading h3{font-size:1.2rem;font-weight:600;margin:0 0 4px}
+.booking-card-heading p{font-size:.85rem;color:#5b6e65;margin:0}
+.booking-card-mark{display:grid;place-items:center;flex:0 0 44px;height:44px;border-radius:11px;background:#244b40;color:#f7f5ee;font:30px Georgia,serif}
+#book .bentral-widget{background:transparent;border:0;border-radius:0;padding:0;box-shadow:none}
+#book .booking-fallback{font-size:.8rem;line-height:1.7;color:#51675e;border-top:1px solid #e9ede8;padding-top:18px}
+#book .booking-fallback a{color:#286b59}
+#book .booking-terms{color:#5b6e65;font-size:.77rem}
+@media(max-width:768px){
+  #book .booking-grid{grid-template-columns:1fr;gap:30px;margin-top:24px}
+  #book .booking-form-wrapper{padding:20px 14px;border-radius:16px}
+  .booking-property-photo{max-width:480px;margin-bottom:20px}
+  #book .booking-content .lead{max-width:540px}
+}
