@@ -5,6 +5,13 @@
 
   /* Slovenian strings. English lives in the HTML as the default. */
   var SL = {
+    booking_check: 'Preveri datume in rezerviraj',
+    booking_help: 'Imaš vprašanje? Piši nam pred rezervacijo →',
+    booking_fallback: 'Se obrazec ne naloži?',
+    booking_open: 'Odpri obrazec za rezervacijo v novem zavihku ↗',
+    booking_terms: 'Pred potrditvijo v obrazcu za rezervacijo preveri skupno ceno, morebitne dodatne stroške ter pogoje plačila in odpovedi.',
+    booking_question: 'Pošlji vprašanje',
+
     tour_load: 'Naloži 360° ogled',
     btn_prepare_enquiry: 'Pripravi e-poštno povpraševanje',
     /* nav */
@@ -137,12 +144,12 @@
     /* availability */
     av_eyebrow: 'Preveri datume',
     av_h2: 'Razpoložljivost',
-    av_desc: 'Koledar v živo — kar vidiš, je v realnem času. Poletni vikendi se najhitreje zapolnijo.',
+    av_desc: 'Oglej si koledar, nato v obrazcu preveri izbrane datume in ceno bivanja.',
 
     /* pricing */
     pr_eyebrow: 'Cene',
     pr_h2: 'Cenik',
-    pr_desc: 'Sezonske cene — turistična taksa in strošek čiščenja se prikažeta ob koncu rezervacije.',
+    pr_desc: 'Ceno in morebitne dodatne stroške za izbrane datume preveri v obrazcu za rezervacijo.',
 
     /* reviews */
     rev_eyebrow: 'Ocene gostov',
@@ -173,23 +180,23 @@
     faq4_q: 'Kdaj sta prihod in odhod?',
     faq4_a: 'Prijava je mogoča od 15.00, odjava do 10.00. Zgodnejša prijava ali poznejša odjava sta mogoči po dogovoru.',
     faq5_q: 'Ali obstaja turistična taksa ali strošek čiščenja?',
-    faq5_a: 'Turistična taksa (~2–3,50 € na gosta na noč) in strošek čiščenja (40 €) se prikažeta ob koncu rezervacije v našem rezervacijskem sistemu.',
+    faq5_a: 'Pred potrditvijo bivanja v obrazcu za rezervacijo preveri turistično takso, strošek čiščenja in skupno ceno.',
     faq6_q: 'Ali so dovoljeni hišni ljubljenčki?',
     faq6_a: 'Hišni ljubljenčki in kajenje niso dovoljeni — tako penthouse za vsakega gosta ostane svež.',
     faq7_q: 'Kakšna je politika odpovedi?',
-    faq7_a: 'Prožna. Podrobnosti so prikazane ob rezervaciji v našem koledarju.',
+    faq7_a: 'Veljajo pogoji izbrane rezervacije. Pred potrditvijo bivanja preveri pogoje odpovedi v obrazcu za rezervacijo.',
     faq8_q: 'Ali je WiFi dovolj hiter za delo na daljavo?',
     faq8_a: 'Da — penthouse ima zanesljiv WiFi, primeren za videoklice in delo na daljavo.',
 
     /* book */
     book_eyebrow: 'Rezerviraj svoje bivanje',
-    book_h2: 'Načrtuj svoje bivanje',
+    book_h2: 'Tvoje bivanje na Bledu se začne tukaj',
     book_bdirect: 'Rezerviraj neposredno',
-    book_lead: 'Koledar v realnem času, takojšnja potrditev in neposreden stik z nami — brez posrednika.',
-    book_f1: 'Garancija najboljše cene',
-    book_f2: 'Brezplačna odpoved',
-    book_f3: 'Takojšnja potrditev',
-    book_note: 'En apartma, en koledar — ko so tvoji termini zasedeni, so oddani.',
+    book_lead: 'V obrazcu izberi datume in preveri razpoložljivost ter ceno bivanja. Pred potrditvijo preberi pogoje rezervacije.',
+    book_f1: 'Rezerviraj neposredno pri nastanitvi',
+    book_f2: 'Pred rezervacijo preveri pogoje odpovedi',
+    book_f3: 'Preveri ceno za izbrane datume',
+    book_note: 'Za največ 2 gosta · 1 spalnica · 2 brezplačni parkirni mesti · brez kuhinje.',
 
     /* contact */
     ct_eyebrow: 'Kontakt',

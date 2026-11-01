@@ -245,7 +245,7 @@ img{max-width:100%;height:auto;display:block}
 .section-desc{font-size:1rem;margin-top:.4rem}
 .booking-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
 .booking-content h3{font-size:1.3rem;margin-bottom:8px}
-.booking-content .lead{margin-bottom:20px;font-size:1.05rem}
+.booking-content .lead{margin-bottom:20px;font-size:1.05rem;color:var(--ink);text-shadow:none}
 .booking-features{list-style:none;margin-bottom:24px}
 .booking-features li{padding:8px 0;border-bottom:1px solid var(--line);font-size:.95rem;display:flex;align-items:center;gap:10px}
 .bf-check{color:var(--accent);font-weight:700;font-size:1rem}
@@ -339,3 +339,19 @@ img{max-width:100%;height:auto;display:block}
 /* Keep small labels and primary actions readable in either theme. */
 [data-theme="dark"] .facts{background:#225c51}
 [data-theme="dark"] .btn-primary,[data-theme="dark"] .nav-links .btn-primary{color:#0f1716}
+
+/* Focus the booking journey while retaining the established design. */
+section[id]{scroll-margin-top:86px}
+.booking-help,.booking-fallback{margin-top:18px;font-size:.95rem}
+.booking-fallback a,.booking-help a{text-decoration:underline;text-underline-offset:3px}
+.booking-terms{font-size:.875rem;line-height:1.65;margin-top:12px}
+.booking-form-wrapper{min-width:0}
+#book .bentral-widget{min-height:390px}
+@media(max-width:768px){
+  .sticky-mobile-bar .btn-primary{flex:1.6;white-space:normal}
+  .sticky-mobile-bar .btn-ghost{white-space:normal}
+  .site-footer{padding-bottom:100px}
+  .booking-content .lead{font-size:1rem}
+  #book .booking-grid{gap:22px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sticky-mobile-bar{transition:none}}
