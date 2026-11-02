@@ -192,12 +192,12 @@
 
     /* book */
     book_eyebrow: 'Rezerviraj svoje bivanje',
-    book_h2: 'Tvoje bivanje na Bledu se začne tukaj',
+    book_h2: 'Tvoj penthouse na Bledu, rezerviran neposredno.',
     book_bdirect: 'Rezerviraj neposredno',
-    book_lead: 'V obrazcu izberi datume in preveri razpoložljivost ter ceno bivanja. Pred potrditvijo preberi pogoje rezervacije.',
-    book_f1: 'Rezerviraj neposredno pri nastanitvi',
-    book_f2: 'Pred rezervacijo preveri pogoje odpovedi',
-    book_f3: 'Preveri ceno za izbrane datume',
+    book_lead: 'V obrazcu preveri razpoložljivost, skupno ceno bivanja in pogoje rezervacije.',
+    book_f1: 'Zasebni balkon',
+    book_f2: 'Brezplačno parkiranje za dva avtomobila',
+    book_f3: 'Prostor za dva gosta',
     book_note: 'Za največ 2 gosta · 1 spalnica · 2 brezplačni parkirni mesti · brez kuhinje.',
 
     /* contact */
